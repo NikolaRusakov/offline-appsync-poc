@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "es5",
+    "module": "commonjs",
+    "typeRoots": ["node_modules/@types"],
+    "esModuleInterop": true,
+    "strict": true,
+    "sourceMap": true
+  },
+  "exclude": ["node_modules"]
+}

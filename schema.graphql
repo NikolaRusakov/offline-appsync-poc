@@ -1,0 +1,79 @@
+type Mutation {
+	createTweet(
+		tweet: String!,
+		consumer_key: String,
+		consumer_secret: String,
+		access_token_key: String,
+		access_token_secret: String,
+		created_at: String!
+	): Tweet!
+
+	deleteTweet(
+	    tweet_id: String!,
+	    consumer_key: String,
+        consumer_secret: String,
+        access_token_key: String,
+        access_token_secret: String
+    ): Tweet!
+
+	reTweet(
+	    tweet_id: String!,
+	    consumer_key: String,
+        consumer_secret: String,
+        access_token_key: String,
+        access_token_secret: String
+    ): Tweet!
+
+	updateTweet(tweet_id: String!, tweet: String!): Tweet!
+
+	updateUserInfo(
+		location: String!,
+		description: String!,
+		name: String!,
+		followers_count: Int!,
+		friends_count: Int!,
+		favourites_count: Int!,
+		following: [String!]!
+	): User!
+}
+
+type Query {
+	meInfo(consumer_key: String, consumer_secret: String): User!
+	getUserInfo(handle: String!, consumer_key: String, consumer_secret: String): User!
+
+	searchAllTweetsByKeyword(keyword: String!): TweetConnection
+	getComments:Tweet
+}
+
+type Tweet {
+	tweet_id: String!
+	tweet: String!
+	retweeted: Boolean
+	retweet_count: Int
+	favorited: Boolean
+	created_at: String!
+}
+
+type TweetConnection {
+	items: [Tweet!]!
+	nextToken: String
+}
+
+type User {
+	name: String!
+	handle: String!
+	location: String!
+	description: String!
+	followers_count: Int!
+	friends_count: Int!
+	favourites_count: Int!
+	following: [String!]!
+	topTweet: Tweet
+	tweets(limit: Int!, nextToken: String): TweetConnection
+
+}
+
+schema {
+	query: Query
+	mutation: Mutation
+}
