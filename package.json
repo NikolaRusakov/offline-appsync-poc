@@ -17,6 +17,7 @@
     "delete-appsync": "serverless delete-appsync"
   },
   "dependencies": {
+    "aws-appsync": "^1.8.1",
     "aws-sdk": "^2.407.0",
     "babel-polyfill": "^6.26.0",
     "bluebird": "^3.5.1",
@@ -28,7 +29,6 @@
     "typescript": "^3.5.3"
   },
   "devDependencies": {
-    "aws-appsync": "ConduitVC/aws-appsync",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
